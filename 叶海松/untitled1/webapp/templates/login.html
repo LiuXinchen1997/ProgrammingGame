@@ -1,0 +1,212 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0" />
+<title>login</title>
+
+<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}" />
+
+<style type="text/css">
+html,body {
+	height: 100%;
+}
+.box {
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6699FF', endColorstr='#6699FF');
+	background-image:linear-gradient(bottom, #6699FF 0%, #6699FF 100%);
+	background-image:-o-linear-gradient(bottom, #6699FF 0%, #6699FF 100%);
+	background-image:-moz-linear-gradient(bottom, #6699FF 0%, #6699FF 100%);
+	background-image:-webkit-linear-gradient(bottom, #6699FF 0%, #6699FF 100%);
+	background-image:-ms-linear-gradient(bottom, #6699FF 0%, #6699FF 100%);
+
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.login-box {
+	width: 100%;
+	max-width:500px;
+	height: 400px;
+	position: absolute;
+	top: 30%;
+
+	margin-top: -100px;
+
+}
+@media screen and (min-width:500px){
+	.login-box {
+		left: 50%;
+		margin-left: -250px;
+	}
+}
+
+.form {
+	width: 100%;
+	max-width:500px;
+	height: 275px;
+	margin: 25px auto 0px auto;
+	padding-top: 25px;
+}
+.login-content {
+	height: 300px;
+	width: 100%;
+	max-width:500px;
+	background-color: rgba(255, 250, 2550, .6);
+	float: left;
+}
+
+
+.input-group {
+	margin: 0px 0px 30px 0px !important;
+}
+.form-control,
+.input-group {
+	height: 40px;
+}
+
+.form-group {
+	margin-bottom: 0px !important;
+}
+.login-title {
+	padding: 20px 10px;
+	background-color: rgba(0, 0, 0, .6);
+}
+.login-title h1 {
+	margin-top: 10px !important;
+}
+.login-title small {
+	color: #fff;
+}
+
+.link p {
+	line-height: 20px;
+	margin-top: 30px;
+}
+.btn-sm {
+	padding: 8px 24px !important;
+	font-size: 16px !important;
+}
+
+
+     .code
+     {
+            font-family:Arial;
+            font-style:italic;
+             color:blue;
+             font-size:30px;
+             border:0;
+             padding:2px 3px;
+             letter-spacing:3px;
+             font-weight:bolder;
+             float:left;
+             cursor:pointer;
+             width:150px;
+             height:60px;
+             line-height:60px;
+             text-align:center;
+             vertical-align:middle;
+
+    }
+    a
+    {
+        text-decoration:none;
+        font-size:12px;
+        color:#288bc4;
+        }
+    a:hover
+    {
+       text-decoration:underline;
+        }
+</style>
+     <script language="javascript" type="text/javascript">
+        var code;
+        function createCode() {
+            code = "";
+            var codeLength = 6; //验证码的长度
+            var checkCode = document.getElementById("checkCode");
+            var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+            'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
+            for (var i = 0; i < codeLength; i++)
+            {
+                var charNum = Math.floor(Math.random() * 52);
+                code += codeChars[charNum];
+            }
+            if (checkCode)
+            {
+                checkCode.className = "code";
+                checkCode.innerHTML = code;
+            }
+        }
+        function validateCode()
+        {
+            var inputCode = document.getElementById("inputCode").value;
+            if (inputCode.length <= 0)
+            {
+                alert("请输入验证码！");
+            }
+            else if (inputCode.toUpperCase() != code.toUpperCase()) {
+                alert("验证码输入有误！");
+                createCode();
+            }
+            else {
+                document.getElementById("myform").submit();
+            }
+        }
+     </script>
+</head>
+
+<body onload="createCode()">
+<div class="box">
+    <form action="/login/" method="post" id="myform">
+		<div class="login-box">
+			<div class="login-title text-center">
+				<h1><small>合肥工业大学信息门户</small></h1>
+			</div>
+			<div class="login-content ">
+			<div class="form">
+                <p>{{ wrong }}</p>
+
+				<div class="form-group">
+					<div class="col-xs-12  ">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+							<input type="text" id="username" name="username" class="form-control" placeholder="用户名" value="{{ Username }}">
+						</div>
+                        <p>{{ nameNull }}</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-12  ">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+							<input type="password" id="password" name="password" class="form-control" placeholder="密码" value="{{ Password }}">
+						</div>
+                        <p>{{ PasswordNull }}</p>
+					</div>
+				</div>
+            </div>
+    <div class="form-group">
+    <table border="0" cellspacing="5" cellpadding="5" >
+        <tr>
+            <td></td><td> <div class="code" id="checkCode" onclick="createCode()" ></div></td>
+            <td><a  onclick="createCode()">看不清换一张</a></td>
+        </tr>
+        <tr >
+            <td>验证码：</td><td><input  type="text"   class="form-control" id="inputCode" placeholder="请输入验证码"></td>
+        </tr>
+    </table>
+    </div>
+				<div class="form-group form-actions">
+					<div class="col-xs-4 col-xs-offset-4 ">
+						<input type="button" class="btn btn-sm btn-info"  onclick="validateCode();" value="登录">
+					</div>
+				</div>
+                </div>
+			</div>
+    </form>
+	</div>
+</body>
+</html>

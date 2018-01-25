@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+<tr>
+        <td>姓名</td>
+        <td>密码</td>
+</tr>
+{%  for i in user %}
+    <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.password }}</td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>
