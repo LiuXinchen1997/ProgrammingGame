@@ -1,0 +1,11 @@
+/build/
+/config/
+/dist/
+/*.js
+/test/unit/coverage/
+/src/pages/BlocklyTem.vue
+/static/
+/src/pages/FreeMode/createMap.vue
+/src/pages/FreeMode/updateMap.vue
+/src/pages/freeModePlay.vue
+/src/pages/freeModeUpload.vue

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>frontend</title>
+    <script src="./node_modules/node-blockly/lib/blockly_compressed.js"></script>
+    <script src="./node_modules/node-blockly/lib/blocks_compressed.js"></script>
+    <script src="./node_modules/node-blockly/blockly/msg/js/en.js"></script>
+    <script src="./static/code.js"></script>
+    <script src="./static/lua_compressed.js"></script>
+    <script src="../static/Build/UnityLoader.js"></script>
+    <script src="../static/TemplateData/UnityProgress.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href='https://fonts.cat.net/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script>
+    function SenseStart () {
+      let btn = document.getElementById('trigger')
+      btn.click()
+    }
+    function LoadMap () {
+      let btn = document.getElementById('trigger2')
+      btn.click()
+    }
+    function result (str) {
+      let area = document.getElementById('res')
+      let obj = JSON.parse(str)
+      area.innerText = obj.success
+    }
+    function MapData(str) {
+      let area = document.getElementById('res')
+      area.innerText = str
+      let btn = document.getElementById('saveBtn')
+      btn.click()
+    }
+  </script>
+</html>

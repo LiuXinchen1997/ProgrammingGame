@@ -1,0 +1,11 @@
+/CodeGame/frontend/build/
+/CodeGame/frontend/config/
+/CodeGame/frontend/dist/
+/CodeGame/frontend/*.js
+/CodeGame/frontend/test/unit/coverage/
+/CodeGame/frontend/src/pages/BlocklyTem.vue
+/CodeGame/frontend/static/
+/CodeGame/frontend/src/pages/FreeMode/createMap.vue
+/CodeGame/frontend/src/pages/FreeMode/updateMap.vue
+/CodeGame/frontend/src/pages/freeModePlay.vue
+/CodeGame/frontend/src/pages/freeModeUpload.vue

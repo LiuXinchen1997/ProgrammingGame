@@ -1,0 +1,39 @@
+stages:
+  - EslintCheck
+  - PylintCheck
+  - JsUnitTest
+  - PyUnitTest
+  - Build
+
+before_script:
+  - echo "start"
+
+EslintJob:
+  stage: EslintCheck
+  script:
+  - npm run lint
+  allow_failure: false
+
+PylintJob:
+  stage: PylintCheck
+  script:
+  - echo "start pylint"
+  allow_failure: true
+
+JsUnitTestJob:
+  stage: JsUnitTest
+  script:
+  - echo "start JS unit test"
+  allow_failure: false
+
+PyUnitTestJob:
+  stage: PyUnitTest
+  script:
+  - echo "start python unit test"
+  allow_failure: false
+
+BuildJob:
+  stage: Build
+  script:
+  - echo "start build"
+  allow_failure: false
