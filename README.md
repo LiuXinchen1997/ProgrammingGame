@@ -64,8 +64,11 @@
 #### 4.2 后端部署
 
 1. 使用`pip install django`或`conda install django`安装Django。
+
 1. 使用`pip install django-cors-headers`安装django-cors-headers包实现跨域访问。
+
 1. 使用`mysql -uroot -p<密码> jisuanke < jisuanke.sql`运行项目sql文件创建数据库与数据库对象。
+
 1. 在**/HFUT_Group3/CodeGame/CodeGame/settings.py**文件内修改以下内容：
 
     ```python
@@ -89,4 +92,17 @@
     ```
 
 1. 使用`python manage.py inspectdb > <APP名称>/models.py`将数据库导入models文件。
+
 1. 使用`python manage.py runserver`运行项目。
+
+### 5 成果展示
+
+![](./res/1.png)
+
+![](./res/2.png)
+
+![](./res/2.jpg)
+
+![](./res/3.png)
+
+![](./res/4.png)
